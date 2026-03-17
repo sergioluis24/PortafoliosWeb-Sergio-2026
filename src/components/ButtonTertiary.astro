@@ -1,10 +1,16 @@
 ---
-
 ---
 
-<button class="shadow-md shadow-slate-100/20 cursor-pointer px-4 py-2 text-porcelain relative bg-carbon rounded-xl
-after:content-['']
-after:absolute after:top-[2px] after:left-0 after:w-full after:h-full
-after:bg-porcelain after:rounded-xl after:-z-10">
-  <slot></slot>
+<button
+  class="group relative cursor-pointer px-4 py-2 rounded-xl bg-carbon text-porcelain
+  shadow-md shadow-slate-100/20 transition-all duration-75"
+>
+  <span class="relative z-20 block transition-transform duration-75 group-active:translate-y-[2px]">
+    <slot></slot>
+  </span>
+
+  <span
+    class="pointer-events-none absolute top-[2px] left-0 w-full h-full
+    rounded-xl bg-porcelain group-active:bg-primary/10 -z-10 transition-all duration-75"
+  ></span>
 </button>

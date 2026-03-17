@@ -1,30 +1,37 @@
 ---
 import ButtonTertiary from "./ButtonTertiary.astro";
 import IconSun from "./icons/IconSun.astro";
+import ItemListHeader from "./ItemListHeader.astro";
 ---
 
 <header class="pt-4">
     <nav>
-        <ul class="flex items-center justify-between space-x-4 ">
-            <div>
+        <ul class="flex items-center justify-between space-x-4  ">
+            <a href="/" class="cursor-pointer">
                 <img src="/Logo-transparent.svg" alt="DevComing Logo" class="h-18 w-auto" fetchpriority="high" />
-            </div>
-            <div class="flex flex-row gap-4 items-center">
-                <li>
-                    <a href="#about" class="text-porcelain hover:text-primary">Sobre mi </a>
-                </li>
-                <li>
-                    <a href="#projects" class="text-porcelain hover:text-primary">Projects</a>
-                </li>
-                <li>
-                    <a href="#skills" class="text-porcelain hover:text-primary">Habilidades</a>
-                </li>
-                <li>
-                    <a href="#certifications" class="text-porcelain hover:text-primary">Certificaciones</a>
-                </li>
-                <li>
-                    <a href="#contact" class="text-porcelain hover:text-primary">Contacto</a>
-                </li>
+            </a>
+            <div class="flex flex-row gap-6 items-center">
+               <ItemListHeader>
+
+                   <a href="#about" class="">Sobre mi </a>
+               </ItemListHeader>
+                
+                 <ItemListHeader>
+
+                     <a href="#projects" class="">Projects</a>
+                 </ItemListHeader>
+             
+                <ItemListHeader>
+
+                    <a href="#skills" class="">Habilidades</a>
+                </ItemListHeader>
+               
+                <ItemListHeader>                    
+                    <a href="#certifications" class="">Certificaciones</a>
+                </ItemListHeader>
+                <ItemListHeader>
+                    <a href="#contact" class="">Contacto</a>
+                </ItemListHeader>
 
                 <div class="flex gap-4">
                     <ButtonTertiary>

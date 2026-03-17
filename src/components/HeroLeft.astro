@@ -1,9 +1,17 @@
 ---
-import { AuroraText } from "@/components/ui/aurora-text"
+import AuroraWrapper from "@/components/AuroraWrapper.tsx";
+import TypingAnimationWrapper from "@/components/TypingAnimationWrapper.tsx";
 ---
+<section class="flex flex-col gap-1.5">
+    
+<h3 class="text-3xl font-medium text-Ssecondary-500/90 text-shadow-lg text-shadow-slate-100/10">Hola! Mi Nombre es</h3>
+ <h1 class="text-6xl font-bold">
+     <AuroraWrapper  client:load>
+      Sergio Hernández
+     </AuroraWrapper>
+</h1>
+<h2 class="text-5xl font-semibold text-porcelain/90 text-shadow-lg text-shadow-slate-100/10">
+    <TypingAnimationWrapper client:load text="Software Developer" />
+</h2>
 
-<h3>Hola! Mi Nombre es</h3>
-<AuroraText>
-  <h1>Sergio Hernandez</h1>
-</AuroraText>
-<h2>Software Developer</h2>
+</section>

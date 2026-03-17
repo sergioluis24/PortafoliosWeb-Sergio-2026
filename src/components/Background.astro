@@ -1,0 +1,12 @@
+<div class="min-h-screen w-full relative bg-black">
+    {/* Crimson Shadow Background with Top Glow */}
+    <div
+      class="absolute inset-0 z-0"
+      style={{
+        background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(217, 4, 41, 0.35), transparent 70%), #1c1c1c",
+      }}
+    />
+        <div class="relative z-10 max-w-[970px] mx-auto">
+      <slot />
+    </div>
+  </div>

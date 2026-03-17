@@ -1,3 +1,8 @@
+---
+import '../styles/global.css'
+import Background from "../components/Background.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -9,7 +14,9 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
+		<Background>
+			<slot />
+		</Background>
 	</body>
 </html>
 

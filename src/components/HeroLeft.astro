@@ -1,17 +1,49 @@
 ---
 import AuroraWrapper from "@/components/AuroraWrapper.tsx";
 import TypingAnimationWrapper from "@/components/TypingAnimationWrapper.tsx";
+import BlurFadeTW from "@/components/BlurFadeW.tsx";
+import BadgeAvaible from "./BadgeAvaible.astro";
+import ButtonPrimary from "./ButtonPrimary.astro";
+import IconMail from "./icons/IconMail.astro";
+const { class: propsClass } = Astro.props;
+
 ---
-<section class="flex flex-col gap-1.5">
+<section class={`flex flex-col gap-1.5 ${propsClass || ''}`} >
     
-<h3 class="text-3xl font-medium text-Ssecondary-500/90 text-shadow-lg text-shadow-slate-100/10">Hola! Mi Nombre es</h3>
+<div class="flex flex-col gap-1">
+    <BlurFadeTW delay={0.25} client:load>
+        <h3 class="text-3xl font-medium text-Ssecondary-500/90 text-shadow-lg text-shadow-slate-100/10">Hola! Mi Nombre es</h3>
+    </BlurFadeTW>
  <h1 class="text-6xl font-bold">
-     <AuroraWrapper  client:load>
-      Sergio Hernández
-     </AuroraWrapper>
+    <BlurFadeTW delay={0.50} client:load>
+
+        <AuroraWrapper  client:load>
+         Sergio Hernández
+        </AuroraWrapper>
+    </BlurFadeTW>
 </h1>
 <h2 class="text-5xl font-semibold text-porcelain/90 text-shadow-lg text-shadow-slate-100/10">
     <TypingAnimationWrapper client:load text="Software Developer" />
 </h2>
+</div>
+<BlurFadeTW delay={0.75} client:load>
+    <BadgeAvaible  client:load>
+        Disponible para nuevos oportunidades
+    </BadgeAvaible>
+</BlurFadeTW>
+<BlurFadeTW delay={0.75} client:load>
+<p class="text-xl text-porcelain/80 text-pretty my-6">
+ Es un gusto darte la bienvenida a mi portafolios.<span class="text-Ssecondary-500">  Mi pasion es Desarrollar Interfaces</span> que no solo se ven bien, sino que están diseñadas para rendir bajo presión. Mi enfoque combina <span class="text-Ssecondary-500">arquitectura frontend sólida, rendimiento optimizado y una ejecución visual cuidada al detalle. </span>
+</p>
+</BlurFadeTW>
 
+<section>
+    <BlurFadeTW delay={1} client:load>
+        <ButtonPrimary>
+            <span>
+            <IconMail></IconMail>    
+            </span> Contactame  
+        </ButtonPrimary>
+    </BlurFadeTW>
+</section>
 </section>

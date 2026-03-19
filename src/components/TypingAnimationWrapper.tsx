@@ -4,7 +4,7 @@ export default function Component({ text }: { text?: string }) {
   return (
     <TypingAnimation
       words={text ? [text] : []}
-      typeSpeed={55}
+      typeSpeed={70}
       loop={false}
       startOnView
       cursorStyle="underscore"

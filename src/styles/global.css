@@ -6,7 +6,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --color-Sprimary-500: #fd879b;
+  --color-Sprimary-600: #fc5f79;
+  --color-Sprimary-700: #fb3758;
+  --color-Sprimary-800: #fa0f36;
   --color-Sprimary: #d90429;
+
   --color-Ssecondary-500: #ffe799;
   --color-Ssecondary-600: #ffde70;
   --color-Ssecondary-700: #ffd447;
@@ -149,16 +154,18 @@
       transform: rotate(-5deg) scale(0.9);
     }
   }
-  --animate-blink-cursor: blink-cursor 1.2s step-end infinite
-;
+  --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
   @keyframes blink-cursor {
-  0%, 49% {
-    opacity: 1;
+    0%,
+    49% {
+      opacity: 1;
     }
-  50%, 100% {
-    opacity: 0;
+    50%,
+    100% {
+      opacity: 0;
     }
-  }}
+  }
+}
 
 @layer base {
   * {

@@ -1,12 +1,15 @@
 ---
+
 ---
 
 <button
   class="group relative cursor-pointer px-4 py-2 rounded-xl bg-carbon text-porcelain
-  shadow-md shadow-slate-100/20 transition-all duration-75"
+  shadow-md shadow-slate-100/20 transition-all duration-75 hover:shadow-lg hover:shadow-slate-100/30 active:shadow-sm active:shadow-slate-100/10"
 >
-  <span class="relative z-20 block transition-transform duration-75 group-active:translate-y-[2px]">
-    <slot></slot>
+  <span
+    class="relative z-20 block transition-transform duration-75 group-active:translate-y-[2px]"
+  >
+    <slot />
   </span>
 
   <span

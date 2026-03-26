@@ -1,0 +1,65 @@
+---
+import icons from "./icons";
+import techData from "../../tecnologies.json";
+import { hexToRgba, hexToShadow, hexToBorder } from "../lib/color";
+
+const items = Astro.props.items ?? techData.technologies;
+const nameIcon = Astro.props.icon;
+
+const found = items.find((i) => i.name === nameIcon) ?? null;
+const Icon = found
+  ? (icons[found.icon] ?? icons.IconDefault)
+  : icons.IconDefault;
+const baseColor = found?.color ?? "#ffffff";
+
+const bgRgba = hexToRgba(baseColor, 0.18);
+const shadowRgba = hexToShadow(baseColor, 0.18);
+const borderRgba = hexToBorder(baseColor, 0.1);
+---
+
+<article
+  class="bc hover:scale-110 hover:animate-rotational-wave hover:bg-Sprimary-500/90 transition-all duration-300 ease-out"
+  style={`--bc-bg: ${bgRgba}; --bc-shadow: ${shadowRgba}; --bc-border: ${borderRgba}`}
+>
+  <div class="bc__icon">
+    <Icon />
+  </div>
+  <h3 class="bc__label">{found?.name ?? nameIcon}</h3>
+</article>
+
+<style>
+  .bc {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 9999px;
+    background-color: var(--bc-bg);
+    box-shadow: 0 8px 30px var(--bc-shadow);
+    border: 1px solid var(--bc-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: #fb3758;
+      box-shadow: 0 8px 30px var(--bc-shadow);
+    }
+  }
+  .bc__icon {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bc__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .bc__label {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+</style>

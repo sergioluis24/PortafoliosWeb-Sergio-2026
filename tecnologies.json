@@ -1,0 +1,64 @@
+{
+  "technologies": [
+    {
+      "name": "Astro",
+      "icon": "IconAstro",
+      "color": "#FF5D00"
+    },
+    {
+      "name": "TailwindCSS",
+      "icon": "IconTailwind",
+      "color": "#06B6D4"
+    },
+    {
+      "name": "React",
+      "icon": "IconReact",
+      "color": "#61DAFB"
+    },
+    {
+      "name": "Node",
+      "icon": "IconNode",
+      "color": "#339933"
+    },
+    {
+      "name": "Express",
+      "icon": "IconExpress",
+      "color": "#000000"
+    },
+    {
+      "name": "Html",
+      "icon": "IconHtml",
+      "color": "#E34F26"
+    },
+    {
+      "name": "Css",
+      "icon": "IconCss",
+      "color": "#1572B6"
+    },
+    {
+      "name": "Javascript",
+      "icon": "IconJavascript",
+      "color": "#F7DF1E"
+    },
+    {
+      "name": "Docker",
+      "icon": "IconDocker",
+      "color": "#2496ED"
+    },
+    {
+      "name": "Git",
+      "icon": "IconGit",
+      "color": "#F05032"
+    },
+    {
+      "name": "Github",
+      "icon": "IconGithub",
+      "color": "#181717"
+    },
+    {
+      "name": "Figma",
+      "icon": "IconFigma",
+      "color": "#F24E1E"
+    }
+  ]
+}

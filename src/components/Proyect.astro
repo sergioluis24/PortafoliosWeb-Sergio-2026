@@ -1,0 +1,37 @@
+---
+import { Icon } from "lucide-react";
+import BreadCrumbs from "./BreadCrumbs.astro";
+import IconArrowRight from "./icons/IconArrowRight.astro";
+import IconLink from "./icons/IconLink.astro";
+import ButtonPrimary from "./ButtonPrimary.astro";
+import consumoApi from "@/assets/Consumo-API.jpg";
+---
+
+<article
+  class="text-porcelain w-4/12 bg-slate-950/10 shadow-lg shadow-slate-400/10 p-8 shadow-lg border-2 border-gray-400/50 rounded-2xl relative overflow-hidden pt-[400px]"
+>
+  <div>
+    <div class="absolute top-0 right-0 w-full h-[350px] overflow-hidden">
+      <img
+        src={consumoApi.src}
+        alt=""
+        class="w-full h-full object-cover transform transition-transform duration-300 ease-out hover:scale-110"
+        style="transform-origin:center center; will-change:transform;"
+      />
+    </div>
+    <h2 class="text-4xl font-semibold mb-4">Title</h2>
+    <p class="text-pretty text-porcelain/80 mb-4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo temporibus
+      vitae sequi iste ab fugit laborum possimus, quibusdam voluptate magnam
+      mollitia repudiandae voluptatem facilis nisi quae quia reprehenderit
+      soluta asperiores.
+    </p>
+  </div>
+  <BreadCrumbs />
+  <div class="flex gap-6">
+    <ButtonPrimary>Ver detalles <IconArrowRight /></ButtonPrimary>
+    <a href="" class="flex justify-center items-center text-blue-300"
+      ><IconLink /> GitHub</a
+    >
+  </div>
+</article>

@@ -5,7 +5,13 @@ import IconArrowRight from "./icons/IconArrowRight.astro";
 import IconLink from "./icons/IconLink.astro";
 import ButtonPrimary from "./ButtonPrimary.astro";
 import consumoApi from "@/assets/Consumo-API.jpg";
-import BreadCrumbs from "./BreadCrumbs.astro";
+const {
+  title = "Title",
+  descriptionLittle = "",
+  image = consumoApi.src,
+  descriptionLarge = "",
+  tecnologies = [],
+} = Astro.props;
 ---
 
 <article
@@ -14,25 +20,21 @@ import BreadCrumbs from "./BreadCrumbs.astro";
   <div>
     <div class="absolute top-0 right-0 w-full h-[350px] overflow-hidden">
       <img
-        src={consumoApi.src}
-        alt=""
+        src={image}
+        alt={title}
         class="w-full h-full object-cover transform transition-transform duration-300 ease-out hover:scale-110"
         style="transform-origin:center center; will-change:transform;"
       />
     </div>
-    <h2 class="text-4xl font-semibold mb-4 text-Ssecondary-500">Title</h2>
-    <p class="text-pretty text-porcelain/80 mb-4">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo temporibus
-      vitae sequi iste ab fugit laborum possimus, quibusdam voluptate magnam
-      mollitia repudiandae voluptatem facilis nisi quae quia reprehenderit
-      soluta asperiores.
-    </p>
+    <h2 class="text-4xl font-semibold mb-4 text-Ssecondary-600">{title}</h2>
+    <p class="text-pretty text-porcelain/80 mb-4">{descriptionLittle}</p>
   </div>
   <div class="flex gap-2 my-6 flex-wrap">
-    <BreadCrumb icon="Html" />
-    <BreadCrumb icon="Css" />
-    <BreadCrumb icon="Javascript" />
-    <BreadCrumb icon="Node" />
+    {
+      tecnologies.map((tecnology) => (
+        <BreadCrumb icon={tecnology} class="w-6 h-6" />
+      ))
+    }
   </div>
   <!-- <BreadCrumbs /> -->
   <div class="flex gap-6">

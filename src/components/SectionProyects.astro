@@ -1,8 +1,52 @@
 ---
 import Proyect from "./Proyect.astro";
+import consumoApi from "@/assets/Consumo-API.jpg";
+
+const proyects = [
+  {
+    title: "Sistema de registro de equipos",
+    descriptionLittle:
+      "Sistema de registro de equipos del universo Naruto con operaciones CRUD completas. Construido con HTML, CSS y JavaScript puro en el frontend, consumiendo datos a través de llamadas fetch a una API REST. Los equipos se renderizan dinámicamente en una tabla interactiva que permite crear, consultar, actualizar y eliminar registros en tiempo real.",
+    image: consumoApi.src,
+    descriptionLarge: `
+    Esta aplicación simula el registro oficial de equipos ninja del universo Naruto, integrando las cuatro operaciones fundamentales de cualquier sistema de datos: Crear, Leer, Actualizar y Eliminar (CRUD).
+
+    El frontend está desarrollado íntegramente con tecnologías web nativas — HTML semántico, CSS para el estilado y JavaScript vanilla para la lógica de interacción — sin depender de frameworks adicionales, lo que demuestra dominio de los fundamentos del desarrollo web.
+
+    La comunicación con la API se gestiona mediante la Fetch API del navegador, manejando peticiones asíncronas con async/await, gestión de errores y parsing de respuestas JSON. Node.js se utiliza en el entorno de desarrollo para la instalación y gestión de dependencias a través de npm.
+
+    La interfaz presenta una tabla dinámica que se actualiza en tiempo real reflejando el estado actual de los datos: cada registro muestra la información del equipo ninja (integrantes, sensei, aldea, entre otros) y expone controles para editar o eliminar directamente desde la vista. El formulario de creación y edición valida los campos antes de realizar la petición correspondiente a la API.
+
+    Habilidades demostradas: consumo de APIs REST, manejo de peticiones HTTP (GET, POST, PUT, DELETE), manipulación dinámica del DOM, gestión del ciclo de vida de los datos y organización de código JavaScript sin frameworks.
+    
+    `,
+    tecnologies: ["Html", "Css", "Javascript", "Node"],
+  },
+  {
+    title: "Sistema de registro de equipos",
+    descriptionLittle:
+      "Sistema de registro de equipos del universo Naruto con operaciones CRUD completas. Construido con HTML, CSS y JavaScript puro en el frontend, consumiendo datos a través de llamadas fetch a una API REST. Los equipos se renderizan dinámicamente en una tabla interactiva que permite crear, consultar, actualizar y eliminar registros en tiempo real.",
+    image: consumoApi.src,
+    descriptionLarge: `
+    Esta aplicación simula el registro oficial de equipos ninja del universo Naruto, integrando las cuatro operaciones fundamentales de cualquier sistema de datos: Crear, Leer, Actualizar y Eliminar (CRUD).
+
+    El frontend está desarrollado íntegramente con tecnologías web nativas — HTML semántico, CSS para el estilado y JavaScript vanilla para la lógica de interacción — sin depender de frameworks adicionales, lo que demuestra dominio de los fundamentos del desarrollo web.
+
+    La comunicación con la API se gestiona mediante la Fetch API del navegador, manejando peticiones asíncronas con async/await, gestión de errores y parsing de respuestas JSON. Node.js se utiliza en el entorno de desarrollo para la instalación y gestión de dependencias a través de npm.
+
+    La interfaz presenta una tabla dinámica que se actualiza en tiempo real reflejando el estado actual de los datos: cada registro muestra la información del equipo ninja (integrantes, sensei, aldea, entre otros) y expone controles para editar o eliminar directamente desde la vista. El formulario de creación y edición valida los campos antes de realizar la petición correspondiente a la API.
+    
+    Habilidades demostradas: consumo de APIs REST, manejo de peticiones HTTP (GET, POST, PUT, DELETE), manipulación dinámica del DOM, gestión del ciclo de vida de los datos y organización de código JavaScript sin frameworks.
+    
+    `,
+    tecnologies: ["Html", "Css", "Javascript", "Node"],
+  },
+];
 ---
 
-<section>
-  <h2 class="text-porcelain text-6xl font-bold mb-8">Proyectos</h2>
-  <Proyect />
+<section class="flex flex-col">
+  <h2 class="text-porcelain text-6xl font-bold mb-16">Proyectos</h2>
+  <div class="flex gap-4">
+    {proyects.map((proyect) => <Proyect {...proyect} />)}
+  </div>
 </section>

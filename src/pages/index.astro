@@ -20,9 +20,14 @@ import SectionProyects from "@/components/SectionProyects.astro";
       <HeroLeft class="w-[50%]" />
     </section>
   </main>
-  <section class="flex flex-row items-center min-h-screen">
-    <AboutLeft />
-    <AboutMe />
+  <section class="mb-80">
+    <h2 class="text-porcelain text-6xl font-bold mb-16">
+      Sobre <span class="text-Sprimary">Mi</span>
+    </h2>
+    <div class="flex flex-row justify-center gap-12">
+      <AboutLeft />
+      <AboutMe />
+    </div>
   </section>
   <SectionProyects />
 </Layout>

@@ -4,7 +4,8 @@ import BreadCrumb from "./BreadCrumb.astro";
 import IconArrowRight from "./icons/IconArrowRight.astro";
 import IconLink from "./icons/IconLink.astro";
 import ButtonPrimary from "./ButtonPrimary.astro";
-import consumoApi from "@/assets/Consumo-API.jpg";
+import consumoApi from "@/assets/Consumo-API.webp";
+import AuroraWrapper from "./AuroraWrapper.tsx";
 const {
   title = "Title",
   descriptionLittle = "",
@@ -15,30 +16,54 @@ const {
 ---
 
 <article
-  class="text-porcelain w-4/12 bg-slate-950/10 shadow-lg shadow-slate-400/10 p-8 shadow-lg border-2 border-gray-400/50 rounded-2xl relative overflow-hidden pt-[400px]"
+  class="group flex flex-col grow-0 h-fit text-porcelain w-4/12 bg-slate-950/10 shadow-lg shadow-slate-400/10 p-8 shadow-lg border-2 border-gray-400/50 rounded-2xl relative overflow-hidden pt-[260px]
+  hover:scale-105
+  hover:shadow-lg hover:shadow-Ssecondary/10
+  hover:bg-Ssecondary-500/10 hover:border-Ssecondary/20 hover:text-porcelain transition-all duration-300 ease-out"
 >
   <div>
-    <div class="absolute top-0 right-0 w-full h-[350px] overflow-hidden">
+    <div class="absolute top-0 right-0 w-full h-[250px] overflow-hidden">
       <img
         src={image}
         alt={title}
-        class="w-full h-full object-cover transform transition-transform duration-300 ease-out hover:scale-110"
+        class="w-full h-full object-cover transform transition-transform duration-300 ease-out hover:scale-120 group-hover:scale-115 group-hover:translate-y-4"
         style="transform-origin:center center; will-change:transform;"
       />
     </div>
-    <h2 class="text-4xl font-semibold mb-4 text-Ssecondary-600">{title}</h2>
-    <p class="text-pretty text-porcelain/80 mb-4">{descriptionLittle}</p>
+    <h2 class="text-3xl font-semibold mb-4 text-Ssecondary-600">{title}</h2>
+    <p
+      class="group-hover:text-porcelain text-md text-pretty text-porcelain/70 mb-2 transition-all duration-300 ease-out"
+    >
+      {descriptionLittle}
+    </p>
   </div>
-  <div class="flex gap-2 my-6 flex-wrap">
+  <div class=`flex gap-2 my-6 flex-wrap ` }>
     {
-      tecnologies.map((tecnology) => (
-        <BreadCrumb icon={tecnology} class="w-6 h-6" />
-      ))
+      tecnologies.map((tecnology, index) => {
+        if (tecnologies.length < 5) {
+          return <BreadCrumb icon={tecnology} class="w-6 h-6" />;
+        }
+        if (tecnologies.length > 5 && index < 4) {
+          return <BreadCrumb icon={tecnology} class="w-6 h-6" />;
+        }
+      })
+    }
+    {
+      tecnologies.length > 4 && (
+        <button class="group cursor-pointer transition  flex items-center gap-1 bg-porcelain text-slate-950 rounded-full px-4 py-2 flex hover:scale-110  hover:bg-Sprimary-800 hover:text-porcelain transition-all duration-300 ease-out">
+          +
+          {/* <IconArrowRight class="w-5 h-5 group-hover:translate-x-1 transition " /> */}
+        </button>
+      )
     }
   </div>
   <!-- <BreadCrumbs /> -->
   <div class="flex gap-6">
-    <ButtonPrimary>Ver detalles <IconArrowRight /></ButtonPrimary>
+    <ButtonPrimary class="group"
+      >Ver detalles <IconArrowRight
+        class="group-hover:translate-x-1 transition"
+      /></ButtonPrimary
+    >
     <a
       href=""
       class="flex justify-center items-center text-blue-300 hover:underline gap-2"

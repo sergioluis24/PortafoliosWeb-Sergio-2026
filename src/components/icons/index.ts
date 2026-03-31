@@ -11,6 +11,8 @@ import IconGit from "./IconGit.astro";
 import IconFigma from "./IconFigma.astro";
 import IconGithub from "./IconGithub.astro";
 import IconDefault from "./IconDefault.astro";
+import IconReactRouter from "./IconReactRouter.astro";
+import IconVercel from "./IconVercel.astro";
 
 const icons = {
   IconAstro,
@@ -25,7 +27,9 @@ const icons = {
   IconGit,
   IconFigma,
   IconGithub,
+  IconReactRouter,
   IconDefault,
+  IconVercel,
 } as const;
 
 export default icons;

@@ -1,0 +1,16 @@
+---
+import icons from "./icons";
+import techData from "../../tecnologies.json";
+
+const items = Astro.props.items ?? techData.technologies;
+const nameIcon = Astro.props.icon;
+
+const found = items.find((i) => i.name === nameIcon) ?? null;
+const Icon = found
+  ? (icons[found.icon] ?? icons.IconDefault)
+  : icons.IconDefault;
+---
+
+<article class="w-20 p-4 rounded-full bg-porcelain/20">
+  <Icon />
+</article>

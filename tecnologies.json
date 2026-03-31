@@ -59,6 +59,16 @@
       "name": "Figma",
       "icon": "IconFigma",
       "color": "#F24E1E"
+    },
+    {
+      "name": "Vercel",
+      "icon": "IconVercel",
+      "color": "#000000"
+    },
+    {
+      "name": "React Router",
+      "icon": "IconReactRouter",
+      "color": "#CA4245"
     }
   ]
 }

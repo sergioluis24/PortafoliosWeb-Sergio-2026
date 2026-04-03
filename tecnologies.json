@@ -3,72 +3,114 @@
     {
       "name": "Astro",
       "icon": "IconAstro",
-      "color": "#FF5D00"
+      "color": "#FF5D00",
+      "categorie": "frontend",
+      "description": "Arquitecturas islands para sitios ultrarrápidos con cero JS por defecto.",
+      "tags": ["Island Architecture", "SSG", "SSR", "Performance"]
     },
     {
       "name": "TailwindCSS",
       "icon": "IconTailwind",
-      "color": "#06B6D4"
+      "color": "#06B6D4",
+      "categorie": "frontend",
+      "description": "Sistemas de diseño cohesivos y responsivos con velocidad de iteración máxima.",
+      "tags": ["Design System", "Responsive", "Custom Themes", "JIT"]
     },
     {
       "name": "React",
       "icon": "IconReact",
-      "color": "#61DAFB"
+      "color": "#61DAFB",
+      "categorie": "frontend",
+      "description": "UIs reactivas y componentes reutilizables con manejo de estado a escala.",
+      "tags": ["Hooks", "Context", "RSC", "Next.js"]
     },
     {
       "name": "Node",
       "icon": "IconNode",
-      "color": "#339933"
+      "color": "#339933",
+      "categorie": "backend",
+      "description": "Servidores eficientes y APIs de alto rendimiento con JavaScript en el backend.",
+      "tags": ["REST", "Middleware", "Streams", "NPM Ecosystem"]
     },
     {
       "name": "Express",
       "icon": "IconExpress",
-      "color": "#000000"
+      "color": "#000000",
+      "categorie": "backend",
+      "description": "APIs robustas y minimalistas con control total sobre el flujo de la aplicación.",
+      "tags": ["Routing", "Middleware", "REST API", "Auth"]
     },
     {
       "name": "Html",
       "icon": "IconHtml",
-      "color": "#E34F26"
+      "color": "#E34F26",
+      "categorie": "frontend",
+      "description": "Estructura semántica sólida, accesible y optimizada para motores de búsqueda.",
+      "tags": ["Semántica", "Accesibilidad", "SEO", "Web Standards"]
     },
     {
       "name": "Css",
       "icon": "IconCss",
-      "color": "#1572B6"
+      "color": "#1572B6",
+      "categorie": "frontend",
+      "description": "Animaciones fluidas, layouts precisos y experiencias visuales que impactan.",
+      "tags": ["Grid", "Flexbox", "Animations", "Custom Properties"]
     },
     {
       "name": "Javascript",
       "icon": "IconJavascript",
-      "color": "#F7DF1E"
+      "color": "#F7DF1E",
+      "categorie": "frontend",
+      "description": "Lógica de negocio dinámica, asincronía avanzada y dominio del lenguaje central de la web.",
+      "tags": ["ES2024", "Async/Await", "DOM", "Functional"]
     },
     {
       "name": "Docker",
       "icon": "IconDocker",
-      "color": "#2496ED"
+      "color": "#2496ED",
+      "categorie": "backend",
+      "description": "Entornos reproducibles y despliegues consistentes de desarrollo a producción.",
+      "tags": ["Containers", "Compose", "CI/CD", "Microservices"]
     },
     {
       "name": "Git",
       "icon": "IconGit",
-      "color": "#F05032"
+      "color": "#F05032",
+      "categorie": "backend",
+      "description": "Control de versiones preciso con flujos de trabajo colaborativos y trazabilidad total.",
+      "tags": ["Branching", "Rebase", "GitFlow", "Conventional Commits"]
     },
     {
       "name": "Github",
       "icon": "IconGithub",
-      "color": "#181717"
+      "color": "#181717",
+      "categorie": "backend",
+      "description": "Colaboración en equipo, revisión de código y automatización con Actions.",
+      "tags": ["Pull Requests", "Actions", "Code Review", "Open Source"]
     },
     {
       "name": "Figma",
       "icon": "IconFigma",
-      "color": "#F24E1E"
+      "color": "#F24E1E",
+      "categorie": "frontend",
+      "description": "Del diseño al código sin fricción, con sistemas de componentes y handoff preciso.",
+      "tags": ["Components", "Auto Layout", "Tokens", "Prototyping"]
     },
     {
       "name": "Vercel",
       "icon": "IconVercel",
-      "color": "#000000"
+      "color": "#000000",
+      "categorie": "backend",
+      "description": "Despliegues instantáneos con edge network global y preview environments por rama.",
+      "tags": ["Edge Network", "Preview Deploy", "Analytics", "Serverless"]
     },
     {
       "name": "React Router",
       "icon": "IconReactRouter",
-      "color": "#CA4245"
+      "color": "#CA4245",
+      "categorie": "frontend",
+      "description": "Navegación declarativa con rutas anidadas, loaders y gestión de estado de URL.",
+      "tags": ["Nested Routes", "Loaders", "Data APIs", "SPA"]
     }
   ]
 }

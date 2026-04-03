@@ -6,6 +6,84 @@ import Skill from "./Skill.astro";
 <BackgroundPattern class="mb-40">
   <section class="relative z-40">
     <h2 class="text-porcelain text-6xl font-bold mb-16">Habilidades</h2>
-    <Skill icon="Html" />
+    <div
+      class="skills-grid grid grid-cols-6 grid-rows-4 grid-flow-dense gap-4 h-[900px] overflow-hidden"
+    >
+      <Skill icon="Html" />
+      <Skill icon="Css" />
+      <Skill icon="Javascript" />
+      <Skill icon="React" />
+      <Skill icon="Node" />
+      <Skill icon="Express" />
+      <Skill icon="TailwindCSS" />
+      <Skill icon="Vercel" />
+      <Skill icon="Git" />
+      <Skill icon="Github" />
+      <Skill icon="Docker" />
+      <Skill icon="Figma" />
+      <Skill icon="React Router" />
+      <Skill icon="Astro" />
+    </div>
   </section>
 </BackgroundPattern>
+
+<script>
+  const TOTAL_COLS = 6;
+  const grid = document.querySelector(".skills-grid")!;
+  const cards = grid.querySelectorAll<HTMLElement>("[data-skill]");
+
+  function getColStart(card: HTMLElement): number {
+    const gridRect = grid.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+    const colWidth = gridRect.width / TOTAL_COLS;
+    return Math.floor((cardRect.left - gridRect.left) / colWidth) + 1;
+  }
+
+  function activate(card: HTMLElement) {
+    const colStart = getColStart(card);
+
+    if (colStart + 1 > TOTAL_COLS) {
+      card.style.gridColumnStart = String(TOTAL_COLS - 1);
+    }
+
+    // 👇 Congela el grid para que no reordene nada
+    grid.classList.remove("grid-flow-dense");
+
+    cards.forEach((c) => {
+      if (c !== card) {
+        c.classList.add("opacity-20", "scale-95");
+      }
+    });
+
+    card.classList.add("!col-span-2", "!row-span-2", "is-active");
+  }
+
+  function deactivate() {
+    cards.forEach((c) => {
+      c.style.gridColumnStart = "";
+      c.classList.remove(
+        "opacity-20",
+        "scale-95",
+        "pointer-events-none",
+        "!col-span-2",
+        "!row-span-2",
+        "is-active",
+      );
+    });
+
+    // 👇 Restaura el dense al salir
+    grid.classList.add("grid-flow-dense");
+  }
+
+  grid.addEventListener("mouseover", (e) => {
+    const card = (e.target as HTMLElement).closest<HTMLElement>("[data-skill]");
+    if (!card) return;
+    if (grid.querySelector(".is-active") === card) return;
+    deactivate();
+    activate(card);
+  });
+
+  grid.addEventListener("mouseleave", () => {
+    deactivate();
+  });
+</script>

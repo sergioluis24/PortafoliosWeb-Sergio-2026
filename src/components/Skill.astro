@@ -2,6 +2,7 @@
 import icons from "./icons";
 import techData from "../../tecnologies.json";
 
+const className = Astro.props.class ?? "";
 const items = Astro.props.items ?? techData.technologies;
 const nameIcon = Astro.props.icon;
 
@@ -11,6 +12,66 @@ const Icon = found
   : icons.IconDefault;
 ---
 
-<article class="w-20 p-4 rounded-full bg-porcelain/20">
-  <Icon />
+<article
+  data-skill
+  class={`skill-card group relative overflow-hidden rounded-2xl p-10 
+          transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${className}`}
+>
+  <!-- Ícono: se achica cuando se expande -->
+  <div
+    class="skill-icon transition-all duration-400 ease-in-out w-full h-full flex flex-col gap-6 items-center justify-center"
+  >
+    <Icon class="w-full h-full" />
+    <p class="text-yellow-50 font-stretch-ultra-condensed">
+      {found?.name ?? nameIcon}
+    </p>
+  </div>
+
+  <!-- Contenido expandido (oculto por defecto) -->
+  <div
+    class="skill-info absolute inset-0 flex flex-col justify-center items-center gap-3 p-5
+              opacity-0 pointer-events-none transition-all duration-300"
+  >
+    <Icon class="w-12 h-12 shrink-0" />
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-red-200 font-bold text-lg tracking-wide">
+        {found?.name ?? nameIcon}
+      </span>
+
+      <span
+        class="bg-yellow-200 text-red-950 font-semibold text-xs tracking-wide px-2 py-1 rounded-sm"
+      >
+        {found.categorie}
+      </span>
+    </div>
+
+    {
+      found?.description && (
+        <p class="text-blue-50/90 text-sm text-center leading-relaxed text-pretty">
+          {found.description}
+        </p>
+      )
+    }
+    {
+      found?.tags && (
+        <div class="flex flex-wrap gap-2 justify-center">
+          {found.tags.map((tag: string) => (
+            <span class="text-xs px-2 py-1 rounded-full border-2 bg-slate-50 border-gray-700/20 text-blue-950">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </div>
 </article>
+<style>
+  .is-active .skill-info {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .is-active .skill-icon {
+    opacity: 0;
+  }
+</style>

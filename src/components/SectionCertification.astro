@@ -1,0 +1,58 @@
+---
+import CardEducation from "./CardEducation.astro";
+
+interface Education {
+  title: string;
+  institution: string;
+  date: string;
+  description?: string;
+}
+interface Certification {
+  title: string;
+  institution: string;
+  date: string;
+  description?: string;
+  link: string;
+}
+
+export interface Props {
+  education?: Education[];
+  certifications?: Certification[];
+}
+
+export let education: Education[] = [
+  {
+    title: "Desarrollo de Software",
+    institution: "Cincinnatus Institute of Craftsmanship, INC.",
+    date: "2025 - Actualidad",
+    description:
+      "Mi formación técnica tiene raíces en el Cincinnatus Institute of Craftsmanship, institución dominicana de vanguardia donde adquirí fundamentos sólidos en desarrollo de software, programación, administración de proyectos tecnológicos e infraestructura de redes. A través de metodologías como Blended Learning y Experiential Learning, desarrollé la capacidad de aprender de forma autónoma, resolver problemas en entornos reales y colaborar eficientemente en equipos de alto rendimiento — competencias que hoy aplico en cada proyecto que construyo.",
+  },
+];
+export let certifications: Certification[] = [
+  {
+    title: "Diseño UI: Fundamentos del diseño",
+    institution: "EDTeam",
+    date: "jun 2018",
+    description:
+      "Se trata de un curso introductorio al diseño de interfaces de usuario, donde se abordan los principios básicos del diseño visual, la teoría del color, la tipografía y la composición. El objetivo es proporcionar a los estudiantes una base sólida para crear interfaces atractivas y funcionales, aplicando conceptos fundamentales que mejoren la experiencia del usuario en aplicaciones y sitios web.",
+  },
+  {
+    title: "Figma para devs",
+    institution: "MiduDev Academy",
+    date: "mar 2025",
+    description:
+      "Este curso se centra en enseñar a los desarrolladores cómo utilizar Figma, una herramienta de diseño colaborativa, para crear prototipos y diseños de interfaces de usuario.",
+  },
+];
+---
+
+<section>
+  <h2 class="text-porcelain text-6xl font-bold mb-16">
+    Educación y Certificaciones
+  </h2>
+
+  <h3 class="text-Sprimary-700 text-5xl font-bold mb-16">Educación 🎓</h3>
+  {education.map((edu) => <CardEducation education={edu} />)}
+  <h3 class="text-Sprimary-700 text-5xl font-bold my-16">Certificaciones 📜</h3>
+</section>

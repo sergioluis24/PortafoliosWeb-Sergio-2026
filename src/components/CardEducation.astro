@@ -1,0 +1,25 @@
+---
+const { title, institution, date, description } = Astro.props.education;
+---
+
+<article
+  class="flex justify-between bg-carbon/50 border-2 border-gray-600/80 rounded-lg w-full px-6 py-4"
+>
+  <div>
+    <h4 class="text-slate-100 text-2xl font-bold tracking-wide">
+      {title}
+    </h4>
+
+    <span class="text-Sprimary-600 text-lg font-semibold tracking-wide">
+      {institution}
+    </span>
+    <p class="text-slate-200 text-md tracking-wide mt-2 text-pretty w-[90ch]">
+      {description}
+    </p>
+  </div>
+  <div>
+    <p class="text-blue-100/90 text-md tracking-wide">
+      {date}
+    </p>
+  </div>
+</article>

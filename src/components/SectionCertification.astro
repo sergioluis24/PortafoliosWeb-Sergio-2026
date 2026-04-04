@@ -1,4 +1,5 @@
 ---
+import CardCertification from "./CardCertification.astro";
 import CardEducation from "./CardEducation.astro";
 
 interface Education {
@@ -12,7 +13,7 @@ interface Certification {
   institution: string;
   date: string;
   description?: string;
-  link: string;
+  image?: string;
 }
 
 export interface Props {
@@ -31,11 +32,12 @@ export let education: Education[] = [
 ];
 export let certifications: Certification[] = [
   {
-    title: "Diseño UI: Fundamentos del diseño",
-    institution: "EDTeam",
-    date: "jun 2018",
+    title: "Desarrollo web Full Stack",
+    institution: "Instituto Dominicano de las Telecomunicaciones (INDOTEL)",
+    date: "Ene 2026",
     description:
-      "Se trata de un curso introductorio al diseño de interfaces de usuario, donde se abordan los principios básicos del diseño visual, la teoría del color, la tipografía y la composición. El objetivo es proporcionar a los estudiantes una base sólida para crear interfaces atractivas y funcionales, aplicando conceptos fundamentales que mejoren la experiencia del usuario en aplicaciones y sitios web.",
+      "Este curso se enfoca en enseñar a los estudiantes las habilidades necesarias para desarrollar aplicaciones web completas, abarcando tanto el frontend como el backend. Los participantes aprenden a crear interfaces de usuario atractivas y funcionales, así como a manejar la lógica del servidor y la gestión de bases de datos, utilizando tecnologías modernas y prácticas recomendadas en el desarrollo web.",
+    image: "@/assets/Certificado-full-stack-indotel.webp",
   },
   {
     title: "Figma para devs",
@@ -43,11 +45,21 @@ export let certifications: Certification[] = [
     date: "mar 2025",
     description:
       "Este curso se centra en enseñar a los desarrolladores cómo utilizar Figma, una herramienta de diseño colaborativa, para crear prototipos y diseños de interfaces de usuario.",
+    image: "@/assets/Certificado-figma-midu.webp",
+  },
+  {
+    title: "Diseño UI: Fundamentos del diseño",
+    institution: "EDTeam",
+    date: "jun 2018",
+    description:
+      "Se trata de un curso introductorio al diseño de interfaces de usuario, donde se abordan los principios básicos del diseño visual, la teoría del color, la tipografía y la composición. El objetivo es proporcionar una base sólida para crear interfaces atractivas y funcionales, aplicando conceptos fundamentales que mejoren la experiencia del usuario en aplicaciones y sitios web.",
+    image: "@/assets/Fundamentos-diseño-Edteam.webp",
   },
 ];
 ---
 
-<section>
+<section class="mb-80">
+  }>
   <h2 class="text-porcelain text-6xl font-bold mb-16">
     Educación y Certificaciones
   </h2>
@@ -55,4 +67,7 @@ export let certifications: Certification[] = [
   <h3 class="text-Sprimary-700 text-5xl font-bold mb-16">Educación 🎓</h3>
   {education.map((edu) => <CardEducation education={edu} />)}
   <h3 class="text-Sprimary-700 text-5xl font-bold my-16">Certificaciones 📜</h3>
+  <div class="flex flex-col gap-6">
+    {certifications.map((cert) => <CardCertification certification={cert} />)}
+  </div>
 </section>

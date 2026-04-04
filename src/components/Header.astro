@@ -5,81 +5,75 @@ import ItemListHeader from "./ItemListHeader.astro";
 ---
 
 <header class="navbar">
-    <nav class="px-10">
-        <ul class="flex items-center justify-between space-x-4  ">
-            <a href="/" class="cursor-pointer">
-                <img src="/Logo-transparent.svg" alt="DevComing Logo" class="h-18 w-auto" fetchpriority="high" />
-            </a>
-            <div class="flex flex-row gap-6 items-center">
-               <ItemListHeader>
+  <nav class="px-10">
+    <ul class="flex items-center justify-between space-x-4">
+      <a href="/" class="cursor-pointer">
+        <img
+          src="/Logo-transparent.svg"
+          alt="DevComing Logo"
+          class="h-18 w-auto"
+          fetchpriority="high"
+        />
+      </a>
+      <div class="flex flex-row gap-6 items-center">
+        <ItemListHeader>
+          <a href="#about" class="">Sobre mi </a>
+        </ItemListHeader>
 
-                   <a href="#about" class="">Sobre mi </a>
-               </ItemListHeader>
-                
-                 <ItemListHeader>
+        <ItemListHeader>
+          <a href="#projects" class="">Projects</a>
+        </ItemListHeader>
 
-                     <a href="#projects" class="">Projects</a>
-                 </ItemListHeader>
-             
-                <ItemListHeader>
+        <ItemListHeader>
+          <a href="#skills" class="">Habilidades</a>
+        </ItemListHeader>
 
-                    <a href="#skills" class="">Habilidades</a>
-                </ItemListHeader>
-               
-                <ItemListHeader>                    
-                    <a href="#certifications" class="">Certificaciones</a>
-                </ItemListHeader>
-                <ItemListHeader>
-                    <a href="#contact" class="">Contacto</a>
-                </ItemListHeader>
+        <ItemListHeader>
+          <a href="#certifications" class="">Certificaciones</a>
+        </ItemListHeader>
+        <ItemListHeader>
+          <a href="#contact" class="">Contacto</a>
+        </ItemListHeader>
 
-                <div class="flex gap-4">
-                    <ButtonTertiary>
-                        CV
-                    </ButtonTertiary>
-                    <ButtonTertiary>
-                            <IconSun/>
-                    </ButtonTertiary>
-                </div>
-            </div>
-        </ul>
-    </nav>
+        <div class="flex gap-4">
+          <ButtonTertiary> CV </ButtonTertiary>
+          <ButtonTertiary>
+            <IconSun />
+          </ButtonTertiary>
+        </div>
+      </div>
+    </ul>
+  </nav>
 </header>
 
 <script>
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if(!navbar) return;
-        if (window.scrollY > 100) {
-            navbar.classList.add('inMoved');
-        } else {
-            navbar.classList.remove('inMoved');
-        }
-    });
-  
+  const navbar = document.querySelector(".navbar");
+  window.addEventListener("scroll", () => {
+    if (!navbar) return;
+    if (window.scrollY > 100) {
+      navbar.classList.add("inMoved");
+    } else {
+      navbar.classList.remove("inMoved");
+    }
+  });
 </script>
 
-
 <style>
-
-    .navbar.inMoved {
-        background-color: rgba(255, 255, 255, 0.145);
-        border-radius: 40px;
-        backdrop-filter: blur(10px);
-box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.09);
--webkit-box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.09);
--moz-box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.09);
-        width: 90%;
-        justify-self: center;
-    }
-    .navbar{
-        position: sticky;
-        top:2rem;
-        z-index: 50;
-        width: 100%;
-        transition: all ease 0.3s;
-        
-        
-    }
-
+  .navbar.inMoved {
+    background-color: rgba(255, 255, 255, 0.145);
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.09);
+    -webkit-box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.09);
+    width: 90%;
+    justify-self: center;
+  }
+  .navbar {
+    position: sticky;
+    top: 2rem;
+    z-index: 50;
+    width: 100%;
+    transition: all ease 0.3s;
+  }
 </style>

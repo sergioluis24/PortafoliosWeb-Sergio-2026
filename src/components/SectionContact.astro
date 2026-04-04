@@ -1,0 +1,95 @@
+---
+import { Icon } from "lucide-react";
+import IconLink from "./icons/IconLink.astro";
+import IconLinkedin from "./icons/IconLinkedin.astro";
+import IconGmail from "./icons/IconGmail.astro";
+import IconWhatsapp from "./icons/IconWhatsapp.astro";
+import SocialMedias from "./SocialMedias.astro";
+---
+
+<section class="py-32">
+  <div
+    class="max-w-[1170px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24"
+  >
+    <!-- Hero Content Area -->
+    <div class="lg:col-span-5 flex flex-col justify-center">
+      <h1
+        class="font-headline text-7xl md:text-7xl font-extrabold tracking-tighter text-white mb-6"
+      >
+        Contacto
+      </h1>
+      <p
+        class="text-on-surface-variant text-lg text-balance leading-relaxed mb-12 text-blue-50/90"
+      >
+        Colaboremos en tu próxima obra maestra digital. Ponte en contacto para
+        consultas sobre diseño y desarrollo de alto impacto.
+      </p>
+      <SocialMedias />
+    </div>
+    <!-- Contact Form Area -->
+    <div class="lg:col-span-7">
+      <div
+        class="group text-porcelain bg-carbon/70 backdrop-blur-lg p-8 md:p-12 rounded-[2rem] border-1 border-Sprimary-600/40 relative overflow-hidden"
+      >
+        <!-- Subtle Glow Decoration -->
+        <div
+          class="group-hover:right-70 transition-all duration-75 ease-linear absolute -top-24 -right-24 w-64 h-64 bg-[#ff3b5c]/10 blur-[100px] rounded-full"
+        >
+        </div>
+        <form action="#" class="relative z-10 space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-2">
+              <label
+                class="block font-label text-xs uppercase tracking-widest text-on-surface-variant"
+                for="name">Tu Nombre</label
+              >
+              <input
+                class="w-full bg-black/40 border border-Sprimary-600/40 rounded-2xl px-4 py-4 text-on-surface focus:outline-none focus:border-[#ff3b5c] focus:ring-1 focus:ring-[#ff3b5c]/20 transition-all placeholder:text-white/60"
+                id="name"
+                name="name"
+                placeholder="Jane Doe"
+                type="text"
+              />
+            </div>
+            <div class="space-y-2">
+              <label
+                class="block font-label text-xs uppercase tracking-widest text-on-surface-variant"
+                for="email">Tu Email</label
+              >
+              <input
+                class="w-full bg-black/40 border border-Sprimary-600/40 rounded-2xl px-4 py-4 text-on-surface focus:outline-none focus:border-[#ff3b5c] focus:ring-1 focus:ring-[#ff3b5c]/20 transition-all placeholder:text-white/60"
+                id="email"
+                name="email"
+                placeholder="jane@example.com"
+                type="email"
+              />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label
+              class="block font-label text-xs uppercase tracking-widest text-on-surface-variant"
+              for="message">Mensaje</label
+            >
+            <textarea
+              class="w-full bg-black/40 border border-Sprimary-600/40 rounded-2xl px-4 py-4 text-on-surface focus:outline-none focus:border-[#ff3b5c] focus:ring-1 focus:ring-[#ff3b5c]/20 transition-all placeholder:text-white/60 resize-none"
+              id="message"
+              name="message"
+              placeholder="Hagamos algo increíble juntos..."
+              rows="6"></textarea>
+          </div>
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-4"
+          >
+            <button
+              class="bg-white text-black cursor-pointer px-10 py-4 rounded-xl font-headline font-bold text-sm uppercase tracking-widest hover:bg-white/90 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-white/5"
+              type="submit"
+            >
+              Enviar Mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Secondary Accents / Socials Grid -->
+    </div>
+  </div>
+</section>

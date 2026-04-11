@@ -7,6 +7,7 @@ import ButtonPrimary from "./ButtonPrimary.astro";
 import consumoApi from "@/assets/Consumo-API.webp";
 import AuroraWrapper from "./AuroraWrapper.tsx";
 const {
+  id,
   title = "Title",
   descriptionLittle = "",
   image = consumoApi.src,
@@ -59,15 +60,18 @@ const {
   </div>
   <!-- <BreadCrumbs /> -->
   <div class="flex gap-6">
-    <ButtonPrimary class="group"
-      >Ver detalles <IconArrowRight
-        class="group-hover:translate-x-1 transition"
-      /></ButtonPrimary
-    >
-    <a
-      href=""
-      class="flex justify-center items-center text-blue-300 hover:underline gap-2"
-      ><IconLink /> GitHub</a
-    >
+    <a href={`/ProyectDetail/${id}`}>
+      <ButtonPrimary class="group"
+        >Ver detalles <IconArrowRight
+          class="group-hover:translate-x-1 transition"
+        /></ButtonPrimary
+      >
+      >
+      <a
+        href=""
+        class="flex justify-center items-center text-blue-300 hover:underline gap-2"
+        ><IconLink /> GitHub</a
+      >
+    </a>
   </div>
 </article>

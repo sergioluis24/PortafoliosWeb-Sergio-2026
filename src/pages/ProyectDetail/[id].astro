@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from "astro";
+export const prerender = false;
+import { proyects } from "@/lib/proyects";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  return [
+    { params: { id: "0" } },
+    { params: { id: "1" } },
+    { params: { id: "2" } },
+  ];
+}
+
+const { id } = Astro.params;
+const proyect = proyects?.find((p) => p.id === Number(id));
+---
+
+<Layout>
+  <section class="text-porcelain">
+    <a href="/" class="text-porcelain">◀</a>
+    <img
+      src={proyect?.image}
+      alt={proyect?.title}
+      class="w-full h-96 rounded-lg mb-8"
+    />
+    <p class="text-porcelain">{proyect?.title}</p>
+    <p class="text-porcelain">{proyect?.image}</p>
+  </section>
+</Layout>

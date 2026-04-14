@@ -1,30 +1,40 @@
 ---
-import type { GetStaticPaths } from "astro";
 export const prerender = false;
 import { proyects } from "@/lib/proyects";
 import Layout from "@/layouts/Layout.astro";
-
-export async function getStaticPaths() {
-  return [
-    { params: { id: "0" } },
-    { params: { id: "1" } },
-    { params: { id: "2" } },
-  ];
-}
-
+import IconArrowLeft from "@/components/icons/IconArrowLeft.astro";
+import BreadCrumb from "@/components/BreadCrumb.astro";
 const { id } = Astro.params;
 const proyect = proyects?.find((p) => p.id === Number(id));
 ---
 
 <Layout>
-  <section class="text-porcelain">
-    <a href="/" class="text-porcelain">◀</a>
+  <section
+    class="text-porcelain flex flex-col items-center gap-8 py-25 text-center"
+  >
+    <a
+      href="/"
+      class="group text-porcelain flex gap-2 hover:bg-Sprimary-700 px-4 py-2 transition rounded-xl"
+    >
+      <IconArrowLeft class="w-6 h-6 group-hover:-translate-x-1 transition" /> Volver
+      al inicio
+    </a>
+    <h2 class="text-porcelain font-bold text-5xl">{proyect?.title}</h2>
+    <p class="text-porcelain font-light text-md text-balance mb-6">
+      {proyect?.descriptionLittle}
+    </p>
+    <div class="flex gap-2">
+      {
+        proyect?.tecnologies.map((tecnology, index) => {
+          return <BreadCrumb icon={tecnology} class="w-6 h-6" />;
+        })
+      }
+    </div>
     <img
       src={proyect?.image}
       alt={proyect?.title}
       class="w-full h-96 rounded-lg mb-8"
     />
-    <p class="text-porcelain">{proyect?.title}</p>
     <p class="text-porcelain">{proyect?.image}</p>
   </section>
 </Layout>

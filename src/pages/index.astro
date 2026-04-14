@@ -11,6 +11,10 @@ import SectionProyects from "@/components/SectionProyects.astro";
 import SectionSkills from "@/components/SectionSkills.astro";
 import SectionCertification from "@/components/SectionCertification.astro";
 import SectionContact from "@/components/SectionContact.astro";
+
+import Footer from "@/components/Footer.astro";
+import HeroRight from "@/components/HeroRight.astro";
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -19,8 +23,9 @@ import SectionContact from "@/components/SectionContact.astro";
   <Header />
   <ScrollProgress />
   <main class="pt-24 min-h-dvh" id="home">
-    <section class="flex">
+    <section class="flex gap-40">
       <HeroLeft class="w-[50%]" />
+      <HeroRight class="w-[50%]" />
     </section>
   </main>
   <section class="mb-80">

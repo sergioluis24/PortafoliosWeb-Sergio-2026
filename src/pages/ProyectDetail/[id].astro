@@ -4,37 +4,59 @@ import { proyects } from "@/lib/proyects";
 import Layout from "@/layouts/Layout.astro";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.astro";
 import BreadCrumb from "@/components/BreadCrumb.astro";
+import IconGithub from "@/components/icons/IconGithub.astro";
+import ButtonSecondary from "@/components/ButtonSecondary.astro";
+import ButtonTertiary from "@/components/ButtonTertiary.astro";
+import DataProyect from "@/components/DataProyect.astro";
 const { id } = Astro.params;
 const proyect = proyects?.find((p) => p.id === Number(id));
 ---
 
 <Layout>
-  <section
-    class="text-porcelain flex flex-col items-center gap-8 py-25 text-center"
-  >
+  <section class="text-porcelain flex flex-col gap-8 py-25 mx-auto w-[75%]">
     <a
       href="/"
-      class="group text-porcelain flex gap-2 hover:bg-Sprimary-700 px-4 py-2 transition rounded-xl"
+      class="group text-porcelain flex gap-2 hover:bg-Sprimary-700 px-4 py-2 transition rounded-xl mx-auto"
     >
       <IconArrowLeft class="w-6 h-6 group-hover:-translate-x-1 transition" /> Volver
       al inicio
     </a>
-    <h2 class="text-porcelain font-bold text-5xl">{proyect?.title}</h2>
-    <p class="text-porcelain font-light text-md text-balance mb-6">
+    <h2
+      transition:name=`title-${id}`
+      class="text-red-100 font-bold text-5xl text-center"
+    >
+      {proyect?.title}
+    </h2>
+    <p class="text-porcelain font-light text-md mb-6 text-balance text-center">
       {proyect?.descriptionLittle}
     </p>
-    <div class="flex gap-2">
+    <div
+      transition:name=`breadCrumbs-${id}`
+      class="flex gap-2 flex-wrap w-8/12 mx-auto justify-center mb-8"
+    >
       {
         proyect?.tecnologies.map((tecnology, index) => {
           return <BreadCrumb icon={tecnology} class="w-6 h-6" />;
         })
       }
     </div>
-    <img
-      src={proyect?.image}
-      alt={proyect?.title}
-      class="w-full h-96 rounded-lg mb-8"
-    />
-    <p class="text-porcelain">{proyect?.image}</p>
+    <div class="mx-auto mb-8">
+      <ButtonSecondary class="flex flex-row items-center gap-2">
+        <IconGithub class="size-5" />
+        Codigo
+      </ButtonSecondary>
+    </div>
+    <DataProyect proyect={proyect} />
+
+    <figure class="">
+      <img
+        src={proyect?.image}
+        alt={proyect?.title}
+        class="w-full h-auto rounded-lg mb-8"
+      />
+    </figure>
+    <p class="text-porcelain text-balance" style={{ whiteSpace: "pre-line" }}>
+      {proyect?.descriptionLarge}
+    </p>
   </section>
 </Layout>

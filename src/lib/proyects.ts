@@ -2,7 +2,19 @@ import consumoApi from "@/assets/Consumo-API.webp";
 import treadsShot from "@/assets/threadsShot.jpg";
 import DevJobsShot from "@/assets/DevJobsShot.webp";
 
-export const proyects = [
+interface Proyect {
+  id: number;
+  title: string;
+  descriptionLittle: string;
+  descriptionLarge: string;
+  image: string;
+  tecnologies: string[];
+  complete: string;
+  category: string;
+  teamSize: "Solo" | "2-4" | "5-10" | "10+";
+}
+
+export const proyects: Proyect[] = [
   {
     id: 0,
     title: "Sistema de registro de equipos",
@@ -10,7 +22,7 @@ export const proyects = [
       "Sistema de registro de equipos del universo Naruto con operaciones CRUD completas. Construido con HTML, CSS y JavaScript puro en el frontend, consumiendo datos a través de llamadas fetch a una API REST. Los equipos se renderizan dinámicamente en una tabla interactiva que permite crear, consultar, actualizar y eliminar registros en tiempo real.",
     image: consumoApi.src,
     descriptionLarge: `
-    Esta aplicación simula el registro oficial de equipos ninja del universo Naruto, integrando las cuatro operaciones fundamentales de cualquier sistema de datos: Crear, Leer, Actualizar y Eliminar (CRUD).
+    Esta aplicación simula el registro oficial de equipos ninja del universo Naruto, integrando las cuatro operaciones fundamentales de cualquier sistema de datos: Crear, Leer, Actualizar y Eliminar (CRUD). 
 
     El frontend está desarrollado íntegramente con tecnologías web nativas — HTML semántico, CSS para el estilado y JavaScript vanilla para la lógica de interacción — sin depender de frameworks adicionales, lo que demuestra dominio de los fundamentos del desarrollo web.
 
@@ -22,6 +34,9 @@ export const proyects = [
     
     `,
     tecnologies: ["Html", "Css", "Javascript", "Node"],
+    complete: "2025",
+    category: "Aplicación Web frontend",
+    teamSize: "Solo",
   },
   {
     id: 1,
@@ -41,6 +56,9 @@ export const proyects = [
       Habilidades demostradas: diseño de interfaces fieles a productos reales, consumo y mapeo de datos de API a componentes visuales, manipulación avanzada del DOM, gestión de estado del feed en el cliente y criterio de UI/UX aplicado a un producto de referencia en la industria.
     `,
     tecnologies: ["Html", "Css", "Javascript", "Node"],
+    complete: "2025",
+    category: "Aplicación Web frontend",
+    teamSize: "Solo",
   },
   {
     id: 2,
@@ -70,6 +88,9 @@ export const proyects = [
       "Css",
       "Html",
     ],
+    complete: "2026",
+    category: "Aplicación Web full-stack",
+    teamSize: "Solo",
   },
 ];
 

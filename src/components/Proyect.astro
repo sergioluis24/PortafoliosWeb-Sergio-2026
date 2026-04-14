@@ -31,16 +31,21 @@ const {
         style="transform-origin:center center; will-change:transform;"
       />
     </div>
-    <h2 class="text-3xl font-semibold mb-4 text-Ssecondary-600">{title}</h2>
+    <h2
+      transition:name=`title-${id}`
+      class="text-3xl font-semibold mb-4 text-Ssecondary-600"
+    >
+      {title}
+    </h2>
     <p
       class="group-hover:text-porcelain text-md text-pretty text-porcelain/70 mb-2 transition-all duration-300 ease-out"
     >
       {descriptionLittle}
     </p>
   </div>
-  <div class=`flex gap-2 my-6 flex-wrap ` }>
+  <div class=`flex gap-2 my-6 flex-wrap ` transition:name=`breadCrumbs-${id}` }>
     {
-      tecnologies.map((tecnology, index) => {
+      tecnologies.map((tecnology: object, index: number) => {
         if (tecnologies.length < 5) {
           return <BreadCrumb icon={tecnology} class="w-6 h-6" />;
         }
@@ -66,7 +71,7 @@ const {
           class="group-hover:translate-x-1 transition"
         /></ButtonPrimary
       >
-      >
+
       <a
         href=""
         class="flex justify-center items-center text-blue-300 hover:underline gap-2"

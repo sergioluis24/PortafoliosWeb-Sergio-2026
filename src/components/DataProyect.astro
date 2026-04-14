@@ -1,0 +1,37 @@
+---
+import IconCalendar from "./icons/IconCalendar.astro";
+import IconTag from "./icons/IconTag.astro";
+import IconUsers from "./icons/IconUsers.astro";
+
+const { complete, category, teamSize } = Astro.props.proyect;
+---
+
+<article class="flex justify-between w-full mb-8">
+  <div class="flex gap-4 items-center">
+    <div class="">
+      <IconCalendar class="text-Ssecondary-600" />
+    </div>
+    <div>
+      <p class="text-porcelain/70">Completado</p>
+      <span class="font-bold text-lg">{complete}</span>
+    </div>
+  </div>
+  <div class="flex gap-4 items-center">
+    <div>
+      <IconTag class="text-Ssecondary-600" />
+    </div>
+    <div>
+      <p class="text-porcelain/70">Categoría</p>
+      <span class="font-bold text-lg"> {category}</span>
+    </div>
+  </div>
+  <div class="flex gap-4 items-center">
+    <div>
+      <IconUsers class="text-Ssecondary-600" />
+    </div>
+    <div>
+      <p class="text-porcelain/70">Tamaño del equipo</p>
+      <span class="font-bold text-lg"> {teamSize}</span>
+    </div>
+  </div>
+</article>

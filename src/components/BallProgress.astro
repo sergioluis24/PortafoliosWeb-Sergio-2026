@@ -1,10 +1,11 @@
 ---
-
+const href = Astro.props.href;
 ---
 
-<a href="">
+<a href={href}>
   <div
-    class="size-4 rounded-full bg-gray-500/70 border-2 border-porcelain/30 shadow-md shadow-Ssecondary-500/20 active:scale-110 active:bg-Sprimary-800"
+    {...Astro.props}
+    class="size-4 rounded-full transition bg-gray-500/70 border-2 border-porcelain/30 shadow-md shadow-Ssecondary-500/20 active:scale-110 active:bg-Sprimary-800"
   >
   </div>
 </a>

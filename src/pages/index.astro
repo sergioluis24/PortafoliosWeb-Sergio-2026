@@ -22,13 +22,13 @@ import HeroRight from "@/components/HeroRight.astro";
 <Layout>
   <Header />
   <ScrollProgress />
-  <main class="pt-24 min-h-dvh" id="home">
+  <main class="pt-24 min-h-dvh" id="home" data-section="home">
     <section class="flex gap-40">
       <HeroLeft class="w-[50%]" />
       <HeroRight class="w-[50%]" />
     </section>
   </main>
-  <section class="mb-80">
+  <section class="mb-80" id="about" data-section="about">
     <h2 class="text-porcelain text-6xl font-bold mb-16">
       Sobre <span class="text-Sprimary">Mi</span>
     </h2>
@@ -37,10 +37,10 @@ import HeroRight from "@/components/HeroRight.astro";
       <AboutMe />
     </div>
   </section>
-  <SectionProyects />
-  <SectionSkills />
-  <SectionCertification />
-  <SectionContact />
+  <SectionProyects id="projects" data-section="projects" />
+  <SectionSkills id="skills" data-section="skills" />
+  <SectionCertification id="certifications" data-section="certifications" />
+  <SectionContact id="contact" data-section="contact" />
 </Layout>
 
 <style>

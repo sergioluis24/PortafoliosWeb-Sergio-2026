@@ -4,7 +4,7 @@ import Skill from "./Skill.astro";
 ---
 
 <BackgroundPattern class="mb-40">
-  <section class="relative z-40">
+  <section {...Astro.props} class="relative z-40">
     <h2 class="text-porcelain text-6xl font-bold mb-16">Habilidades</h2>
     <div
       class="skills-grid grid grid-cols-6 grid-rows-4 grid-flow-dense gap-4 h-[900px] overflow-hidden"

@@ -1,16 +1,59 @@
 ---
 import BallProgress from "./BallProgress.astro";
+const sections = [
+  "home",
+  "about",
+  "projects",
+  "skills",
+  "certifications",
+  "contact",
+];
 ---
 
 <aside class="fixed top-60 right-10 z-50 w-fit h-fit">
-  <section class="progress flex flex-col gap-5">
+  <section class="progress flex flex-col gap-5" id="containerBalls">
+    <!-- <BallProgress />
     <BallProgress />
     <BallProgress />
     <BallProgress />
     <BallProgress />
-    <BallProgress />
-    <BallProgress />
+    <BallProgress /> -->
+    {
+      sections &&
+        sections.map((section) => (
+          <BallProgress
+            key={section}
+            data-ball={section}
+            href={`#${section}`}
+          />
+        ))
+    }
   </section>
 </aside>
 
-<style></style>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const balls = document.querySelectorAll("[data-ball]");
+    const sections = document.querySelectorAll("[data-section]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const ball_intersected = Array.from(balls).find(
+              (ball) => ball.dataset.ball === entry.target.dataset.section,
+            );
+            balls.forEach((ball) => ball.classList.remove("bg-red-s"));
+            if (ball_intersected) ball_intersected.classList.add("bg-red-s");
+          }
+        });
+      },
+      { threshold: 0.65 },
+    );
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>
+<style>
+  .bg-red-s {
+    background: #fa0f36;
+  }
+</style>

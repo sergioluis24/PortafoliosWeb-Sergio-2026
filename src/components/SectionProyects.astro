@@ -3,7 +3,10 @@ import Proyect from "./Proyect.astro";
 import { proyects } from "@/lib/proyects";
 ---
 
-<section {...Astro.props} class="flex flex-col grow-0 shrink-0 mb-40">
+<section
+  {...Astro.props}
+  class="flex flex-col grow-0 shrink-0 mb-40 timeline-view animate-blink animate-range-[entry_30%_cover_65%]"
+>
   <h2 class="text-porcelain text-6xl font-bold mb-16">Proyectos</h2>
   <div class="flex gap-4">
     {proyects.map((proyect) => <Proyect {...proyect} />)}

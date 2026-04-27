@@ -1,6 +1,7 @@
 ---
 import CardCertification from "./CardCertification.astro";
 import CardEducation from "./CardEducation.astro";
+import type { HTMLAttributes } from "astro/types";
 
 interface Education {
   title: string;
@@ -16,12 +17,14 @@ interface Certification {
   image?: string;
 }
 
-export interface Props {
+type Props = HTMLAttributes<"section"> & {
   education?: Education[];
   certifications?: Certification[];
-}
+};
 
-export let education: Education[] = [
+const { education, certifications, ...props } = Astro.props;
+
+const educationData: Education[] = education ?? [
   {
     title: "Desarrollo de Software",
     institution: "Cincinnatus Institute of Craftsmanship, INC.",
@@ -30,7 +33,8 @@ export let education: Education[] = [
       "Mi formación técnica tiene raíces en el Cincinnatus Institute of Craftsmanship, institución dominicana de vanguardia donde adquirí fundamentos sólidos en desarrollo de software, programación, administración de proyectos tecnológicos e infraestructura de redes. A través de metodologías como Blended Learning y Experiential Learning, desarrollé la capacidad de aprender de forma autónoma, resolver problemas en entornos reales y colaborar eficientemente en equipos de alto rendimiento — competencias que hoy aplico en cada proyecto que construyo.",
   },
 ];
-export let certifications: Certification[] = [
+
+const certificationsData: Certification[] = certifications ?? [
   {
     title: "Desarrollo web Full Stack",
     institution: "Instituto Dominicano de las Telecomunicaciones (INDOTEL)",
@@ -58,16 +62,18 @@ export let certifications: Certification[] = [
 ];
 ---
 
-<section class="mb-80" {...Astro.props}>
-  }>
+<section class="mb-80" {...props}>
   <h2 class="text-porcelain text-6xl font-bold mb-16">
     Educación y Certificaciones
   </h2>
-
   <h3 class="text-Sprimary-700 text-5xl font-bold mb-16">Educación 🎓</h3>
-  {education.map((edu) => <CardEducation education={edu} />)}
+  {educationData.map((edu) => <CardEducation education={edu} />)}
   <h3 class="text-Sprimary-700 text-5xl font-bold my-16">Certificaciones 📜</h3>
   <div class="flex flex-col gap-6">
-    {certifications.map((cert) => <CardCertification certification={cert} />)}
+    {
+      certificationsData.map((cert) => (
+        <CardCertification certification={cert} />
+      ))
+    }
   </div>
 </section>

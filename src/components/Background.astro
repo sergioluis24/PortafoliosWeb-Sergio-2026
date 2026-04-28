@@ -1,13 +1,10 @@
+---
+
+---
+
 <div class="relative bg-black">
   {/* Crimson Shadow Background with Top Glow */}
-  <div
-    class="absolute inset-0 z-0 min-h-screen w-full"
-    style={{
-      background:
-        "radial-gradient(ellipse 80% 30% at 50% 0%, rgba(217, 4, 41, 0.35), transparent 70%), #1c1c1c",
-    }}
-  >
-  </div>
+  <div class="background absolute inset-0 z-0 min-h-screen w-full"></div>
 
   {/* Content with max-width constraint */}
   <div class="relative z-10 max-w-[1170px] mx-auto pt-8 min-h-screen">
@@ -19,3 +16,25 @@
     <slot name="fullwidth" />
   </div>
 </div>
+
+<style>
+  html.light .background {
+    background:
+      radial-gradient(
+        ellipse 80% 30% at 50% 0%,
+        rgba(217, 4, 41, 0.35),
+        transparent 70%
+      ),
+      #f8f9fa;
+  }
+
+  html.dark .background {
+    background:
+      radial-gradient(
+        ellipse 80% 30% at 50% 0%,
+        rgba(217, 4, 41, 0.35),
+        transparent 70%
+      ),
+      #1c1c1c;
+  }
+</style>

@@ -1,5 +1,7 @@
 ---
 import ButtonTertiary from "./ButtonTertiary.astro";
+import { ButtonToggleTheme } from "./ButtonToggleTheme";
+import IconMoon from "./icons/IconMoon.astro";
 import IconSun from "./icons/IconSun.astro";
 import ItemListHeader from "./ItemListHeader.astro";
 ---
@@ -37,9 +39,10 @@ import ItemListHeader from "./ItemListHeader.astro";
 
         <div class="flex gap-4">
           <ButtonTertiary> CV </ButtonTertiary>
-          <ButtonTertiary>
-            <IconSun />
-          </ButtonTertiary>
+          <ButtonToggleTheme client:load>
+            <IconSun slot="sun" />
+            <IconMoon slot="moon" />
+          </ButtonToggleTheme>
         </div>
       </div>
     </ul>

@@ -38,7 +38,13 @@ import ItemListHeader from "./ItemListHeader.astro";
         </ItemListHeader>
 
         <div class="flex gap-4">
-          <ButtonTertiary> CV </ButtonTertiary>
+          <a
+            href="/CV/sergio-luis-hernandez-cruz.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ButtonTertiary> CV </ButtonTertiary>
+          </a>
           <ButtonToggleTheme client:load>
             <IconSun slot="sun" />
             <IconMoon slot="moon" />

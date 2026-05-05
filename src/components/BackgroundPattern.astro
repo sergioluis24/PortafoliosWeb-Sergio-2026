@@ -2,32 +2,54 @@
 const { class: className = "" } = Astro.props;
 ---
 
-<div class={`bg-[#1c1c1c] relative rounded-xl ${className}`}>
+<div class={`relative rounded-xl  dark:bg-[#1c1c1c] ${className}`}>
   {/* Grid + Dots Pattern */}
-  <div
-    class="absolute inset-0 z-0 opacity-40"
-    style={{
-      backgroundImage: `
-        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)
-      `,
-      backgroundSize: "20px 20px, 20px 20px, 20px 20px",
-    }}
-  >
-  </div>
+  <div class="absolute inset-0 z-0 opacity-40 pattern-grid"></div>
 
   {/* Vignette — fade del patrón hacia los bordes */}
-  <div
-    class="absolute inset-0 z-10 pointer-events-none"
-    style={{
-      background: `
-        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 50%, #1c1c1c 80%)
-      `,
-    }}
-  >
-  </div>
+  <div class="absolute inset-0 z-10 pointer-events-none pattern-vignette"></div>
 
   {/* Contenido */}
   <slot />
 </div>
+
+<style>
+  .pattern-grid {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+      radial-gradient(circle, rgba(0, 0, 0, 0.6) 1px, transparent 1px);
+    background-size:
+      20px 20px,
+      20px 20px,
+      20px 20px;
+  }
+
+  /* Dark mode overrides when a parent has the `dark` class (Tailwind class-based dark mode) */
+  html.dark .pattern-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px
+      ),
+      radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  }
+
+  /* .pattern-vignette {
+    background: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      transparent 50%,
+      #fffcf9 80%
+    );
+  } */
+
+  html.dark .pattern-vignette {
+    background: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      transparent 50%,
+      #1c1c1c 80%
+    );
+  }
+</style>

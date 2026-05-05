@@ -12,6 +12,7 @@ interface Proyect {
   complete: string;
   category: string;
   teamSize: "Solo" | "2-4" | "5-10" | "10+";
+  github: string;
 }
 
 export const proyects: Proyect[] = [
@@ -37,6 +38,7 @@ export const proyects: Proyect[] = [
     complete: "2025",
     category: "Aplicación Web frontend",
     teamSize: "Solo",
+    github: "https://github.com/sergioluis24/API-Rest/tree/main",
   },
   {
     id: 1,
@@ -59,6 +61,7 @@ export const proyects: Proyect[] = [
     complete: "2025",
     category: "Aplicación Web frontend",
     teamSize: "Solo",
+    github: "https://github.com/sergioluis24/Api-Rest---Fetch",
   },
   {
     id: 2,
@@ -91,6 +94,7 @@ export const proyects: Proyect[] = [
     complete: "2026",
     category: "Aplicación Web full-stack",
     teamSize: "Solo",
+    github: "https://github.com/sergioluis24/Devjobs",
   },
 ];
 

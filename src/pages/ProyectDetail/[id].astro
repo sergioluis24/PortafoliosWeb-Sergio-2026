@@ -41,10 +41,12 @@ const proyect = proyects?.find((p) => p.id === Number(id));
       }
     </div>
     <div class="mx-auto mb-8">
-      <ButtonSecondary class="flex flex-row items-center gap-2">
-        <IconGithub class="size-5" />
-        Codigo
-      </ButtonSecondary>
+      <a href={proyect?.github} target="_blank" rel="noopener noreferrer">
+        <ButtonSecondary class="flex flex-row items-center gap-2">
+          <IconGithub class="size-5" />
+          Codigo
+        </ButtonSecondary>
+      </a>
     </div>
     <DataProyect proyect={proyect} />
 

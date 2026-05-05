@@ -13,6 +13,7 @@ const {
   image = consumoApi.src,
   descriptionLarge = "",
   tecnologies = [],
+  github,
 } = Astro.props;
 ---
 
@@ -73,7 +74,9 @@ const {
       >
 
       <a
-        href=""
+        href={github}
+        target="_blank"
+        rel="noopener noreferrer"
         class="flex justify-center items-center text-blue-300 hover:underline gap-2"
         ><IconLink /> GitHub</a
       >

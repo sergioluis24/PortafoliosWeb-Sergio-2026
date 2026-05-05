@@ -52,12 +52,16 @@ const { class: propsClass } = Astro.props;
 
   <BlurFadeTW delay={1} client:load>
     <section class="flex gap-6 items-center">
-      <ButtonPrimary>
-        <span>
-          <IconMail />
-        </span> Contactame
-      </ButtonPrimary>
-      <ButtonSecondary> Ver Proyectos </ButtonSecondary>
+      <a href="#contact">
+        <ButtonPrimary>
+          <span>
+            <IconMail />
+          </span> Contactame
+        </ButtonPrimary>
+      </a>
+      <a href="#projects">
+        <ButtonSecondary> Ver Proyectos </ButtonSecondary>
+      </a>
     </section>
   </BlurFadeTW>
 </section>

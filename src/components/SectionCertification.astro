@@ -15,6 +15,7 @@ interface Certification {
   date: string;
   description?: string;
   image?: string;
+  link?: string;
 }
 
 type Props = HTMLAttributes<"section"> & {
@@ -42,6 +43,7 @@ const certificationsData: Certification[] = certifications ?? [
     description:
       "Este curso se enfoca en enseñar a los estudiantes las habilidades necesarias para desarrollar aplicaciones web completas, abarcando tanto el frontend como el backend. Los participantes aprenden a crear interfaces de usuario atractivas y funcionales, así como a manejar la lógica del servidor y la gestión de bases de datos, utilizando tecnologías modernas y prácticas recomendadas en el desarrollo web.",
     image: "@/assets/Certificado-full-stack-indotel.webp",
+    link: "/certifiacaciones/fullStack_indotel_sergio.pdf",
   },
   {
     title: "Figma para devs",
@@ -50,6 +52,7 @@ const certificationsData: Certification[] = certifications ?? [
     description:
       "Este curso se centra en enseñar a los desarrolladores cómo utilizar Figma, una herramienta de diseño colaborativa, para crear prototipos y diseños de interfaces de usuario.",
     image: "@/assets/Certificado-figma-midu.webp",
+    link: "/certifiacaciones/figma_Devs_sergio.pdf",
   },
   {
     title: "Diseño UI: Fundamentos del diseño",
@@ -58,6 +61,7 @@ const certificationsData: Certification[] = certifications ?? [
     description:
       "Se trata de un curso introductorio al diseño de interfaces de usuario, donde se abordan los principios básicos del diseño visual, la teoría del color, la tipografía y la composición. El objetivo es proporcionar una base sólida para crear interfaces atractivas y funcionales, aplicando conceptos fundamentales que mejoren la experiencia del usuario en aplicaciones y sitios web.",
     image: "@/assets/Fundamentos-diseño-Edteam.webp",
+    link: "/certifiacaciones/fundamentos_diseno.pdf",
   },
 ];
 ---

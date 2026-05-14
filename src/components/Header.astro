@@ -1,15 +1,20 @@
 ---
 import ButtonTertiary from "./ButtonTertiary.astro";
 import { ButtonToggleTheme } from "./ButtonToggleTheme";
+import IconMenu from "./icons/IconMenu.astro";
 import IconMoon from "./icons/IconMoon.astro";
 import IconSun from "./icons/IconSun.astro";
 import ItemListHeader from "./ItemListHeader.astro";
+import MenuMovil from "./MenuMovil.astro";
 ---
 
-<header class="navbar animate-slide-in-top animate-duration-700">
+<header
+  class="hidden lg:block navbar animate-slide-in-top animate-duration-700"
+  id="header"
+>
   <nav class="px-10">
     <ul class="flex items-center justify-between space-x-4">
-      <a href="/" class="cursor-pointer">
+      <a href="#home" class="cursor-pointer">
         <img
           src="/Logo-transparent.svg"
           alt="DevComing Logo"
@@ -54,16 +59,88 @@ import ItemListHeader from "./ItemListHeader.astro";
     </ul>
   </nav>
 </header>
-
+<div
+  class="sm:block lg:hidden navbarMovil mx-auto w-full flex items-center justify-between navbar-menu"
+>
+  <a href="#home" class="cursor-pointer">
+    <img
+      src="/Logo-transparent.svg"
+      alt="DevComing Logo"
+      class="h-18 w-auto"
+      fetchpriority="high"
+    />
+  </a>
+  <div class="flex shrink-0 grow-0 h-fit items-center gap-4">
+    <ButtonToggleTheme client:load>
+      <IconSun slot="sun" />
+      <IconMoon slot="moon" />
+    </ButtonToggleTheme>
+    <button id="btnIconMenu">
+      <IconMenu class="pointer-events-none" id="IconMenu" />
+    </button>
+  </div>
+</div>
+<MenuMovil />
 <script>
-  const navbar = document.querySelector(".navbar");
-  window.addEventListener("scroll", () => {
+  import { Icon } from "lucide-react";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const IconMenu = document.getElementById("IconMenu");
+    const navbarMovil = document.querySelector(".navbarMovil");
+    const menuMovil = document.querySelector(".menuMovil");
+    const menuMovilBack = document.querySelector(".menuMovilBack");
+    const btnIconMenu = document.getElementById("btnIconMenu");
+    const navbar = document.querySelector(".navbar");
+    const navbarMenu = document.querySelector(".navbar-menu");
+
     if (!navbar) return;
-    if (window.scrollY > 100) {
-      navbar.classList.add("inMoved");
-    } else {
-      navbar.classList.remove("inMoved");
+
+    const handle = (scrollTop) => {
+      if (scrollTop > 100) {
+        navbar.classList.add("inMoved");
+        navbarMenu.classList.add("inMoved");
+      } else {
+        navbar.classList.remove("inMoved");
+        navbarMenu.classList.remove("inMoved");
+      }
+    };
+
+    const onWin = () => handle(window.scrollY || window.pageYOffset || 0);
+    const onEl = (e) => handle(e.target.scrollTop ?? 0);
+
+    // Attach to common scroll targets to cover cases where scroll happened
+    // on an element instead of the window (e.g. custom wrappers).
+    window.addEventListener("scroll", onWin, { passive: true });
+    document.addEventListener("scroll", onEl, { passive: true });
+    document.addEventListener("click", (event) => {
+      if (event.target === btnIconMenu) {
+        menuMovil?.classList.add("visibleMenu");
+        menuMovilBack?.classList.add("visibleMenu");
+        navbarMovil?.classList.add("hiddenMenu");
+      }
+      if (event.target.closest(".movil-a")) {
+        menuMovil?.classList.remove("visibleMenu");
+        menuMovilBack?.classList.remove("visibleMenu");
+        navbarMovil?.classList.remove("hiddenMenu");
+      }
+    });
+    // Also try specific likely containers
+    const candidates = [
+      document.scrollingElement,
+      document.documentElement,
+      document.body,
+      document.getElementById("home"),
+    ];
+    for (const c of candidates) {
+      if (!c || c === window) continue;
+      try {
+        c.addEventListener &&
+          c.addEventListener("scroll", onEl, { passive: true });
+      } catch (err) {}
     }
+
+    // initial check
+    onWin();
   });
 </script>
 
@@ -84,5 +161,34 @@ import ItemListHeader from "./ItemListHeader.astro";
     z-index: 50;
     width: 100%;
     transition: all ease 0.3s;
+  }
+  .navbar-menu.inMoved {
+    background-color: rgba(255, 255, 255, 0.145);
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.09);
+    -webkit-box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.09);
+    width: 90%;
+    justify-self: center;
+  }
+  .navbar-menu {
+    padding-inline: 1.5rem;
+
+    position: sticky;
+    top: 2rem;
+    z-index: 50;
+    width: 100%;
+    transition: all ease 0.3s;
+  }
+  .navbarMovil {
+    transform: translateY(0rem);
+    opacity: 1;
+    transition: all 300ms ease;
+  }
+  .navbarMovil.hiddenMenu {
+    opacity: 0;
+    transform: translateY(-2rem);
+    pointer-events: none;
   }
 </style>

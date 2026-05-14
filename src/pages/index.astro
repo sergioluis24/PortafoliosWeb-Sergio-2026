@@ -20,7 +20,7 @@ import HeroRight from "@/components/HeroRight.astro";
 ---
 
 <Layout>
-  <Header />
+  <Header client:load />
   <ScrollProgress />
   <main class="pt-24 min-h-dvh" id="home" data-section="home">
     <section class="flex gap-40">
@@ -50,5 +50,6 @@ import HeroRight from "@/components/HeroRight.astro";
     font-family: "Onest Variable", sans-serif;
     position: relative;
     overflow-x: hidden;
+    overflow-y: scroll;
   }
 </style>

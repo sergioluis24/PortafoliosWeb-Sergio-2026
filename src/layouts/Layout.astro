@@ -16,7 +16,7 @@ import { ClientRouter } from "astro:transitions";
     <title>Astro Basics</title>
     <ClientRouter />
   </head>
-  <body>
+  <body class="">
     <Background>
       <slot />
       <slot name="fullwidth" />
@@ -29,8 +29,9 @@ import { ClientRouter } from "astro:transitions";
   html,
   body {
     margin: 0;
-    width: 100%;
+    width: 100% !important;
     height: 100%;
+    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
